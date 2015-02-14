@@ -33,8 +33,26 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.time = new Date();
+.controller('PlaylistsCtrl', function($scope, $http) {
+  $scope.date = new Date();
+  var base_url = 'http://www.hebcal.com/converter/';
+  
+  console.log(JSON.stringify($scope.date.getYear()));
+  
+  var url = base_url; 
+  url += '?cfg=' + 'json';
+  url += '&gy=' + $scope.date.getFullYear();
+  url += '&gm=' + ($scope.date.getMonth() + 1);
+  url += '&gd=' + $scope.date.getDate();
+  url += '&g2h=' + '1';
+
+  $http.get(url).then(function(resp) {
+    $scope.success = true;
+    $scope.resp = resp.data;
+  }, function(err) {
+    $scope.success = false;
+    $scope.resp = err;
+  });
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
