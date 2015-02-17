@@ -1,6 +1,13 @@
-<ion-view view-title="{{resp.hebrew}}">
+<ion-view view-title="{{ parsha }}">
   <ion-content>
-  <h2>{{ resp.hy }} {{ resp.hm }} {{ resp.hd }}</h2>
-  <b>Events:</b> {{ resp.events[0] }}
+  <h1>{{ book }}</h1>
+  <div class="en" ng-repeat="chapter in en">
+    <p>
+    <span class="chapter-num">{{chapter.chapter}}</span>&nbsp;
+    <span ng-repeat="verse in chapter.text">
+      <sup>{{verse.verse}}</sup> {{verse.text}}
+    </span>
+    </p>
+  </div>
   </ion-content>
 </ion-view>

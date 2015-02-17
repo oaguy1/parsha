@@ -1,1 +1,32 @@
-/* Empty. Add your own CSS if you like */
+div.en {
+  padding: 1.5em;
+}
+
+h1 {
+  text-align: center;
+  font-family: times;
+}
+
+h2 {
+  text-align: left;
+  font-family: times;
+  
+}
+
+p {
+  line-height: 1.3em;
+  font-size: 20px;
+  font-family: times;
+  text-align: justify;
+}
+
+sup {
+  font-style: italic;
+}
+
+.chapter-num {
+  float: left;
+  font-size: 75px;
+  line-height: 60px;
+  padding 4px;
+}
